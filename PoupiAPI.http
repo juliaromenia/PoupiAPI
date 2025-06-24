@@ -1,0 +1,6 @@
+@PoupiAPI_HostAddress = http://localhost:5241
+
+GET {{PoupiAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
