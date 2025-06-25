@@ -15,7 +15,7 @@ public class UsuarioController : Controller
     }
 
     [HttpPost("cadastro")]
-    public async Task<IActionResult> Cadastro(CadastroUsuarioDTO cadastro)
+    public async Task<IActionResult> Cadastro([FromBody] CadastroUsuarioDTO cadastro)
     {
         if (await _context.Usuarios.AnyAsync(u => u.Email == cadastro.Email))
         {
@@ -35,7 +35,7 @@ public class UsuarioController : Controller
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login(LoginUsuarioDTO login)
+    public async Task<IActionResult> Login([FromBody] LoginUsuarioDTO login)
     {
         var usuario = await _context.Usuarios
             .FirstOrDefaultAsync(u => u.Email == login.Email && u.Senha == login.Senha);
